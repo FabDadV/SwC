@@ -19,26 +19,23 @@ import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
 public class DetailFragment extends Fragment {
-    public static final String EXTRA_POSITION = "extra_position";
-    private static final int DEFAULT_POSITION = 3;
-
     private TextView mainNameTv;
     private TextView placeOfOriginTv;
     private TextView alsoKnownTv;
     private TextView descriptionTv;
     private TextView ingredientsTv;
+    private int position;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        position = getActivity().getIntent().getIntExtra(DetailActivity.EXTRA_POSITION, position);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        // TODO: delete positon:
-        int position = 3;
 
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
         String json = sandwiches[position];

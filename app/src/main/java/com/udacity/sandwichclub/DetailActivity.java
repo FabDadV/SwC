@@ -14,13 +14,13 @@ import com.udacity.sandwichclub.utils.JsonUtils;
 import java.util.List;
 
 public class DetailActivity extends AppCompatActivity {
+    public static final String EXTRA_POSITION = "extra_position";
+    private static final int DEFAULT_POSITION = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        int position =3;
 
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragment_container);
@@ -36,14 +36,13 @@ public class DetailActivity extends AppCompatActivity {
         if (intent == null) {
             closeOnError();
         }
-/*
+
         int position = intent.getIntExtra(EXTRA_POSITION, DEFAULT_POSITION);
         if (position == DEFAULT_POSITION) {
             // EXTRA_POSITION not found in intent
             closeOnError();
             return;
         }
-*/
     }
 
     private void closeOnError() {
